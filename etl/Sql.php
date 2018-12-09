@@ -74,6 +74,7 @@ class Sql
             if (!mysqli_select_db($this->link, $db))
                 die('Brak dostępu do bazy danych!');
             $this->connectedDB = $db;
+			$this->execute("SET NAMES 'utf8'");
             $this->connect_time = time();
         }
     }
