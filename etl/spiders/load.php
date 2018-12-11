@@ -7,6 +7,7 @@ $sql->selectDB('etl');
 $jsonContents = file_get_contents('transform.json');
 $jsonDecodeData = json_decode($jsonContents, true);
 
+
 foreach($jsonDecodeData as $item) {
 	$querySelect = "SELECT id FROM jobs WHERE title like '".$item['title']."' and company_name like '".$item['company_name']."'";
 	$querySelectResult = $sql->fetch($querySelect);
@@ -25,5 +26,3 @@ foreach($jsonDecodeData as $item) {
 	}
 }
 
-var_dump($sql->fetchAll('Select * from jobs'));
-?>

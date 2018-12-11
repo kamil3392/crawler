@@ -447,6 +447,7 @@ class Sql
 
         if ($db == 'etl') {
             $this->connect('127.0.0.1', 'root', '', $db);
+            $this->execute("SET NAMES 'utf8'");
         }
         else {
             die('Podaj nazwe bazy!');
