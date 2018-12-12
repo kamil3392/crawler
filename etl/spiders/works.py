@@ -38,4 +38,4 @@ process = CrawlerProcess({
 
 process.crawl(WorksSpider)
 process.start()  # the script will block here until the crawling is finished
-print('smierdzace dupsko Kamila')
+print('smierdzace dupsko Jakuba')
