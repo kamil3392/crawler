@@ -53,10 +53,8 @@ class Transform
         file_put_contents('../spiders/transform.json', $parsedData);
     }
 
-    public function getParamStr(string $string)
+    public function getParamStr(string $string): string
     {
-        $stringAfter = substr($string, strpos($string, ":") + 2);
-        $stringBefore = substr($stringAfter, strpos($stringAfter, ',') - 1);
-        return $stringAfter;
+        return substr($string, strpos($string, ':') + 2);
     }
 }
