@@ -50,7 +50,7 @@ class Transform
         }
 
         $parsedData = json_encode($parsedData);
-        file_put_contents('../spiders/transform.json', $parsedData);
+        file_put_contents('transform.json', $parsedData);
     }
 
     public function getParamStr(string $string): string
