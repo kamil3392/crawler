@@ -2,6 +2,6 @@
 
 include_once 'Transform.php';
 
-$transform = new Transform('../spiders/data.json');
+$transform = new Transform('data.json');
 
 $transform->transform();

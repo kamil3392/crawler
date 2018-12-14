@@ -5,7 +5,7 @@ include_once 'Transform.php';
 
 $load = new Load();
 $extract = new Extract();
-$transform = new Transform('../spiders/data.json');
+$transform = new Transform('data.json');
 
 $extract->extract();
 $transform->transform();

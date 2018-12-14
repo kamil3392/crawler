@@ -16,7 +16,9 @@ class Load {
 
 
   foreach($jsonDecodeData as $item) {
-	$querySelect = "SELECT id FROM jobs WHERE title like '".$item['title']."' and company_name like '".$item['company_name']."'";
+	$querySelect = "SELECT id FROM jobs WHERE title like '".$item['title']."' and company_name like '".$item['company_name']."'
+	and location like '".$item['location']."' and price like '".$item['price']."' and kind like '".$item['kind']."'
+	and position_level like '".$item['position_level']."'";
 	$querySelectResult = $this->sql->fetch($querySelect);
 
 	if($querySelectResult == null) {

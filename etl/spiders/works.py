@@ -13,7 +13,7 @@ class JobItem(scrapy.Item):
 class WorksSpider(scrapy.Spider):
     name = "works"
     allowed_domains = ['gratka.pl']
-    start_urls = ['https://gratka.pl/praca']
+    start_urls = ['https://gratka.pl/praca/inzynier-konstr-technika']
 
     def parse(self, response):
         for oneJobOffer in response.css("a.teaser"):
@@ -25,9 +25,9 @@ class WorksSpider(scrapy.Spider):
 
             yield item
 
-        # next_page_url = response.css(".pagination__nextPage::attr(href)").extract_first()
-        # if next_page_url:
-        #     yield scrapy.Request(url=next_page_url, callback=self.parse)
+        next_page_url = response.css(".pagination__nextPage::attr(href)").extract_first()
+        if next_page_url:
+            yield scrapy.Request(url=next_page_url, callback=self.parse)
 
 
 process = CrawlerProcess({

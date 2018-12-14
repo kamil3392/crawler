@@ -26,6 +26,7 @@ $rowsCount = count($rows);
         <input class="btn btn-primary" type="button" name="extract" id="extract" value="EXTRACT"/>
         <input class="btn btn-primary" type="button" name="transform" id="transform" value="TRANSFORM"/>
         <input class="btn btn-primary" type="button" name="load" id="load" value="LOAD"/>
+        <input class="btn btn-danger" type="button" name="clearDb" id="clearDb" value="CLEAR DATABASE"/>
         <input class="btn btn-warning pull-right" type="button" name="export" id="export" value="EXPORT TO CSV"/>
     </form>
 </div>
@@ -101,13 +102,14 @@ $rowsCount = count($rows);
         $("#extract").attr("disabled", true);
         $("#transform").attr("disabled", true);
         $("#etl").attr("disabled", true);
+        $("#export").attr("disabled", true);
+        $("#clearDb").attr("disabled", true);
         $.ajax({
             cache: false,
             url: 'load_exec.php',
             type: 'get',
             success: function () {
-                $("#extract").attr("disabled", false);
-                $("#etl").attr("disabled", false);
+                location.reload();
             }
         });
     });
@@ -117,13 +119,14 @@ $rowsCount = count($rows);
         $("#extract").attr("disabled", true);
         $("#transform").attr("disabled", true);
         $("#load").attr("disabled", true);
+        $("#clearDb").attr("disabled", true);
+        $("#export").attr("disabled", true);
         $.ajax({
             cache: false,
             url: 'etl_exec.php',
             type: 'get',
             success: function () {
-
-                $("#extract").attr("disabled", false);
+                location.reload();
             }
         });
     });
@@ -143,6 +146,21 @@ $rowsCount = count($rows);
                 $("#transform").attr("disabled", false);
                 $("#load").attr("disabled", false);
                 $("#etl").attr("disabled", false);
+            }
+        });
+    });
+
+    $("#clearDb").click(function () {
+        $("#extract").attr("disabled", true);
+        $("#transform").attr("disabled", true);
+        $("#load").attr("disabled", true);
+        $("#etl").attr("disabled", true);
+        $.ajax({
+            cache: false,
+            url: 'truncate_exec.php',
+            type: 'get',
+            success: function () {
+                location.reload();
             }
         });
     });

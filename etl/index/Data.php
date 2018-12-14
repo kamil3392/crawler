@@ -16,6 +16,5 @@ class Data {
 
 	public function clearTable() {
 		$this->sql->execute("TRUNCATE TABLE jobs");
-		return $this->sql->fetchAll();
 	}
 }
