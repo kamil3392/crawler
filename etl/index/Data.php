@@ -13,4 +13,9 @@ class Data {
 		$this->sql->execute("SELECT * FROM jobs");
 		return $this->sql->fetchAll();
 	}
+
+	public function clearTable() {
+		$this->sql->execute("TRUNCATE TABLE jobs");
+		return $this->sql->fetchAll();
+	}
 }

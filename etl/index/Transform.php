@@ -12,6 +12,7 @@ class Transform
     public function transform()
     {
         $content = file_get_contents($this->filePath);
+        file_put_contents('transform.json', '');
 
         $clean = trim(preg_replace('/\s\s+/', ' ', $content));
         $clean = str_replace('\n', '', $clean);
